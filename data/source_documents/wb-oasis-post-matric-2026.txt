@@ -1,0 +1,19 @@
+OFFICIAL_SOURCE_URL: https://oasis.gov.in
+APPLICATION_URL: https://oasis.gov.in
+PROVIDER: Backward Classes Welfare Department, Government of West Bengal
+SCHEME_NAME: West Bengal OASIS Post-Matric Scholarship for SC/ST/OBC
+SOURCE_TYPE: State Government
+---
+GOVERNMENT OF WEST BENGAL - OASIS SCHOLARSHIP PORTAL.
+        POST-MATRIC SCHOLARSHIP FOR SC/ST/OBC.
+        Eligibility Criteria: Students belonging to SC/ST/OBC communities who are permanent residents of West Bengal studying in post-matriculation courses.
+        Academic Requirements: Passed previous qualifying exam and studying in Class 11, 12, Graduation or Post-Graduation.
+        Financial Benefit Amount: ₹300 to ₹1,200 per month maintenance allowance plus compulsory course fees.
+        Family Income Limit: Annual family income not exceeding ₹2.5 Lakh for SC/ST and ₹1.0 Lakh for OBC.
+        Category: SC, ST, OBC.
+        Domicile: State of West Bengal only.
+        Application Deadline: 31 January 2027.
+        Official Portal Source: https://oasis.gov.in.
+        Direct Application Portal: https://oasis.gov.in.
+        Selection Process: Verification by institution head, Block Development Officer (BDO) / Sub-Divisional Officer (SDO).
+        Documents Required: West Bengal digital caste certificate, Income certificate, Bank passbook copy with IFSC, Marksheet of last examination.

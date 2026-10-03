@@ -1,0 +1,18 @@
+OFFICIAL_SOURCE_URL: https://www.ongcscholar.org
+APPLICATION_URL: https://www.ongcscholar.org/portal/site/ongc-scholar
+PROVIDER: ONGC Foundation
+SCHEME_NAME: ONGC Foundation Scholarship for OBC Students
+SOURCE_TYPE: Corporate CSR
+---
+ONGC SCHOLAR PORTAL - SCHOLARSHIP SCHEME FOR OBC STUDENTS.
+        Eligibility Criteria: OBC students in 1st year of Engineering, MBBS, MBA, or Master's in Geosciences with minimum 60% marks in qualifying examination.
+        Academic Requirements: Minimum 60% marks in Class 12 or graduation.
+        Financial Benefit Amount: ₹48,000 per annum.
+        Family Income Limit: Family annual income not more than ₹2 Lakh per annum.
+        Age Limit: Maximum 30 years.
+        Category: OBC (Non-Creamy Layer).
+        Application Deadline: 30 November 2026.
+        Official Portal Source: https://www.ongcscholar.org.
+        Direct Application Portal: https://www.ongcscholar.org/portal/site/ongc-scholar.
+        Selection Process: Zone-wise merit list based on qualifying examination percentages.
+        Documents Required: OBC NCL Certificate, Income certificate, Marksheets, Bank passbook copy.

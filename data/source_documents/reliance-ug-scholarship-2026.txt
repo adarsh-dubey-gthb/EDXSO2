@@ -1,0 +1,17 @@
+OFFICIAL_SOURCE_URL: https://scholarships.reliancefoundation.org
+APPLICATION_URL: https://scholarships.reliancefoundation.org/Undergraduate_Scholarship.aspx
+PROVIDER: Reliance Foundation
+SCHEME_NAME: Reliance Foundation Undergraduate Scholarships
+SOURCE_TYPE: Corporate CSR
+---
+RELIANCE FOUNDATION SCHOLARSHIPS - UNDERGRADUATE SCHOLARSHIPS 2026.
+        Official Provider: Reliance Foundation.
+        Eligibility Criteria: First-year regular full-time undergraduate students across any stream in recognized Indian institutes. Minimum 60% in Class 12.
+        Academic Requirements: Passed Class 12 board examination with minimum 60% aggregate marks.
+        Financial Benefit Amount: Up to ₹2,00,000 over the duration of degree.
+        Family Income Limit: Household annual income less than ₹15 Lakh (preference to income below ₹2.5 Lakh).
+        Application Deadline: 06 October 2026.
+        Official Portal Source: https://scholarships.reliancefoundation.org.
+        Direct Application Portal: https://scholarships.reliancefoundation.org/Undergraduate_Scholarship.aspx.
+        Selection Process: Online aptitude test (verbal, analytical, numerical) followed by holistic evaluation of merit and household financial background.
+        Documents Required: Class 12 marksheet, Bonafide enrollment certificate from college, Household income proof, Aadhaar card.

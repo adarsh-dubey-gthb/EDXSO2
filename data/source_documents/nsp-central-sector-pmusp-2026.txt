@@ -1,0 +1,18 @@
+OFFICIAL_SOURCE_URL: https://scholarships.gov.in
+APPLICATION_URL: https://scholarships.gov.in
+PROVIDER: Department of Higher Education, Ministry of Education
+SCHEME_NAME: Central Sector Scheme of Scholarship for College and University Students (PM-USP)
+SOURCE_TYPE: Central Government
+---
+DEPARTMENT OF HIGHER EDUCATION, MINISTRY OF EDUCATION.
+        CENTRAL SECTOR SCHEME OF SCHOLARSHIP FOR COLLEGE AND UNIVERSITY STUDENTS (PM-USP).
+        Eligibility Criteria: Students above 80th percentile of successful candidates in relevant stream from respective Class 12 board, pursuing regular undergraduate course.
+        Academic Requirements: Score above 80th percentile in Class 12 board examinations.
+        Financial Benefit Amount: ₹12,000 per annum for undergraduate (1st 3 years); ₹20,000 per annum for post-graduate.
+        Family Income Limit: Gross parental annual income not exceeding ₹4.5 Lakh per annum.
+        Age Limit: 18 to 25 years.
+        Application Deadline: 31 October 2026.
+        Official Portal Source: https://scholarships.gov.in.
+        Direct Application Portal: https://scholarships.gov.in.
+        Selection Process: Board-wise state quota allocation based on population and percentile rank.
+        Documents Required: Class 12 marksheet, Income certificate, College bonafide certificate, Aadhaar seeded bank account proof.

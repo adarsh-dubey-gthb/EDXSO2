@@ -1,0 +1,18 @@
+OFFICIAL_SOURCE_URL: https://iisc.ac.in
+APPLICATION_URL: https://admissions.iisc.ac.in
+PROVIDER: Indian Institute of Science (IISc), Bangalore
+SCHEME_NAME: IISc Bangalore Institute Research Fellowship
+SOURCE_TYPE: University / Premier Institution
+---
+INDIAN INSTITUTE OF SCIENCE (IISC) BANGALORE.
+        FINANCIAL SUPPORT AND RESEARCH FELLOWSHIPS.
+        Eligibility Criteria: Regular full-time PhD and M.Tech (Research) students admitted through national level tests (GATE / CSIR-UGC NET / JEST).
+        Academic Requirements: Bachelor's / Master's degree in Engineering / Science with valid national test score.
+        Course Level: Ph.D. / M.Tech. (Research).
+        Financial Benefit Amount: ₹37,000 per month for first 2 years; ₹42,000 per month for subsequent 3 years plus contingency grant.
+        Family Income Limit: Not specified.
+        Application Deadline: 31 March 2026.
+        Official Portal Source: https://iisc.ac.in.
+        Direct Application Portal: https://admissions.iisc.ac.in.
+        Selection Process: Departmental research interview and technical evaluation.
+        Documents Required: GATE/NET scorecard, Degree transcripts, Research interest statement, Caste/EWS certificate if applicable.

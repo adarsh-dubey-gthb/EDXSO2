@@ -1,0 +1,18 @@
+OFFICIAL_SOURCE_URL: https://www.ongcscholar.org
+APPLICATION_URL: https://www.ongcscholar.org/portal/site/ongc-scholar
+PROVIDER: ONGC Foundation
+SCHEME_NAME: ONGC Foundation Scholarship for SC/ST Students
+SOURCE_TYPE: Corporate CSR
+---
+ONGC FOUNDATION SCHOLARSHIP SCHEME FOR SC/ST STUDENTS.
+        Eligibility Criteria: SC/ST students enrolled in 1st year of Engineering (B.Tech), MBBS, MBA, or Master's in Geophysics/Geology. Minimum 60% marks or equivalent CGPA in qualifying exam.
+        Academic Requirements: Minimum 60% in Class 12 for Engineering/MBBS or 60% in graduation for MBA/Geology.
+        Financial Benefit Amount: ₹48,000 per annum (₹4,000 per month).
+        Family Income Limit: Gross family annual income from all sources not exceeding ₹4.50 Lakh per annum.
+        Age Limit: Maximum 30 years as of 1st July 2026.
+        Category: SC / ST.
+        Application Deadline: 30 November 2026.
+        Official Portal Source: https://www.ongcscholar.org.
+        Direct Application Portal: https://www.ongcscholar.org/portal/site/ongc-scholar.
+        Selection Process: Zone-wise merit list based on qualifying marks, subject to income verification.
+        Documents Required: Caste certificate, Income certificate, Class 10 & 12 marksheets, Admission receipt, Pan card, ECS mandate form.

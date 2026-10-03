@@ -1,0 +1,25 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.env
+
+# Streamlit
+.streamlit/
+
+# Testing
+.pytest_cache/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Cache
+data/web_cache/*
+!data/web_cache/.gitkeep
+

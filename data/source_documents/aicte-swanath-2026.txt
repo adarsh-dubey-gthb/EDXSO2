@@ -1,0 +1,16 @@
+OFFICIAL_SOURCE_URL: https://www.aicte-india.org/schemes/students-development-schemes
+APPLICATION_URL: https://scholarships.gov.in
+PROVIDER: All India Council for Technical Education (AICTE)
+SCHEME_NAME: AICTE - Swanath Scholarship Scheme
+SOURCE_TYPE: Statutory Body / Ministry
+---
+ALL INDIA COUNCIL FOR TECHNICAL EDUCATION - SWANATH SCHOLARSHIP SCHEME.
+        Eligibility Criteria: Orphan students, or candidates whose both parents died due to Covid-19, or wards of Armed Forces and Central Paramilitary Forces martyred in action.
+        Academic Requirements: Currently studying in AICTE approved degree/diploma courses.
+        Financial Benefit Amount: ₹50,000 per annum for every year of study.
+        Family Income Limit: Family annual income not more than ₹8 Lakh per annum.
+        Application Deadline: 31 October 2026.
+        Official Portal Source: https://www.aicte-india.org/schemes/students-development-schemes.
+        Direct Application Portal: https://scholarships.gov.in.
+        Selection Process: Fulfillment of eligibility and verification by institute nodal officer and AICTE.
+        Documents Required: Death certificate of parents / Martyr proof, Bonafide student certificate, Income certificate, Bank details.

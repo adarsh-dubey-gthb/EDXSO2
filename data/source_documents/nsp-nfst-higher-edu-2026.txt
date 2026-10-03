@@ -1,0 +1,18 @@
+OFFICIAL_SOURCE_URL: https://scholarships.gov.in
+APPLICATION_URL: https://scholarships.gov.in
+PROVIDER: Ministry of Tribal Affairs, Government of India
+SCHEME_NAME: National Fellowship and Scholarship for Higher Education of ST Students
+SOURCE_TYPE: Central Government
+---
+MINISTRY OF TRIBAL AFFAIRS, GOVERNMENT OF INDIA.
+        NATIONAL FELLOWSHIP AND SCHOLARSHIP FOR HIGHER EDUCATION OF ST STUDENTS.
+        Eligibility Criteria: ST candidates who have secured admission in premier institutions across India for degree/post-graduate courses.
+        Academic Requirements: Admission in top-tier national institutions (IITs, NITs, NIFT, IIMs).
+        Financial Benefit Amount: Full tuition fee reimbursement plus living allowance of ₹3,000 per month plus ₹19,000 per year book allowance.
+        Family Income Limit: Total family annual income not exceeding ₹6.0 Lakh per annum.
+        Category: ST.
+        Application Deadline: 31 October 2026.
+        Official Portal Source: https://scholarships.gov.in.
+        Direct Application Portal: https://scholarships.gov.in.
+        Selection Process: Merit-based slot allocation up to 1,000 fresh scholarships every year.
+        Documents Required: ST Certificate, Income certificate, College admission allotment letter, Fee voucher, Aadhaar.

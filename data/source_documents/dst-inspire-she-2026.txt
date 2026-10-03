@@ -1,0 +1,18 @@
+OFFICIAL_SOURCE_URL: https://online-inspire.gov.in
+APPLICATION_URL: https://online-inspire.gov.in
+PROVIDER: Department of Science and Technology (DST), Government of India
+SCHEME_NAME: DST INSPIRE - Scholarship for Higher Education (SHE)
+SOURCE_TYPE: Central Government
+---
+DEPARTMENT OF SCIENCE AND TECHNOLOGY (DST) - INNOVATION IN SCIENCE PURSUIT FOR INSPIRED RESEARCH (INSPIRE).
+        SCHOLARSHIP FOR HIGHER EDUCATION (SHE).
+        Eligibility Criteria: Students within top 1% in Class 12 examination of State/Central boards pursuing natural and basic sciences courses, OR top 10,000 rank in JEE/NEET opting for basic sciences.
+        Academic Requirements: Top 1% rank in Class 12 board examination in science stream.
+        Financial Benefit Amount: ₹80,000 per annum (₹60,000 cash scholarship + ₹20,000 summer research mentorship grant).
+        Family Income Limit: Not specified (merit and percentile ranking based).
+        Age Limit: 17 to 22 years.
+        Application Deadline: 30 November 2026.
+        Official Portal Source: https://online-inspire.gov.in.
+        Direct Application Portal: https://online-inspire.gov.in.
+        Selection Process: Merit list prepared strictly on the basis of Class 12 board cutoff percentage (top 1% percentile per board).
+        Documents Required: Class 12 marksheet, Endorsement certificate signed by Head of Institution, Class 10 certificate, Aadhaar card.

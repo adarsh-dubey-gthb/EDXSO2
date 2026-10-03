@@ -1,0 +1,19 @@
+OFFICIAL_SOURCE_URL: https://scholarships.gov.in
+APPLICATION_URL: https://scholarships.gov.in
+PROVIDER: Ministry of Social Justice and Empowerment, Government of India
+SCHEME_NAME: Top Class Education Scheme for SC Students
+SOURCE_TYPE: Central Government
+---
+MINISTRY OF SOCIAL JUSTICE AND EMPOWERMENT (MOSJE).
+        TOP CLASS EDUCATION SCHEME FOR SCHEDULED CASTE (SC) STUDENTS.
+        Eligibility Criteria: Scheduled Caste (SC) students who have secured admission in notified premier institutes (IITs, IIMs, NITs, AIIMS, NLUs).
+        Academic Requirements: Admission into any of the notified top-class institutions.
+        Course Level: Undergraduate / Postgraduate in Premier Institutes.
+        Financial Benefit Amount: Full tuition fee plus living expenses of ₹3,000 per month plus ₹86,000 one-time computer grant.
+        Family Income Limit: Total family annual income from all sources not exceeding ₹8.0 Lakh per annum.
+        Category: SC.
+        Application Deadline: 31 October 2026.
+        Official Portal Source: https://scholarships.gov.in.
+        Direct Application Portal: https://scholarships.gov.in.
+        Selection Process: Institute slot quota allocation based on inter-se merit of SC students admitted to the institute.
+        Documents Required: Caste certificate issued by competent authority, Income certificate, Fee receipt of premier institute, Bank account details.

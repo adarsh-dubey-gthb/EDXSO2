@@ -1,0 +1,19 @@
+OFFICIAL_SOURCE_URL: https://ugcnet.nta.ac.in
+APPLICATION_URL: https://ugcnet.nta.ac.in
+PROVIDER: University Grants Commission (UGC) / NTA
+SCHEME_NAME: UGC Junior Research Fellowship (JRF) in Humanities & Social Sciences
+SOURCE_TYPE: Statutory Body / Ministry
+---
+UNIVERSITY GRANTS COMMISSION (UGC) - NATIONAL TESTING AGENCY (NTA).
+        JUNIOR RESEARCH FELLOWSHIP (JRF).
+        Eligibility Criteria: Candidates who qualify UGC-NET for Junior Research Fellowship and register for M.Phil/Ph.D. in recognized university.
+        Academic Requirements: Master's degree with at least 55% marks (50% for SC/ST/OBC-NCL/PwD).
+        Course Level: Ph.D. / M.Phil.
+        Financial Benefit Amount: ₹37,000 per month (JRF for first 2 years); ₹42,000 per month (SRF remaining 3 years) plus HRA and contingency.
+        Family Income Limit: Not specified.
+        Age Limit: Not more than 30 years (relaxation for reserved categories).
+        Application Deadline: 15 October 2026.
+        Official Portal Source: https://ugcnet.nta.ac.in.
+        Direct Application Portal: https://ugcnet.nta.ac.in.
+        Selection Process: National eligibility test conducted twice a year by National Testing Agency (NTA).
+        Documents Required: UGC-NET JRF award letter, Master's degree certificate, PhD admission registration letter, Joining report.

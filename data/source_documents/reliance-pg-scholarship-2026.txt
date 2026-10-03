@@ -1,0 +1,17 @@
+OFFICIAL_SOURCE_URL: https://scholarships.reliancefoundation.org
+APPLICATION_URL: https://scholarships.reliancefoundation.org
+PROVIDER: Reliance Foundation
+SCHEME_NAME: Reliance Foundation Postgraduate Scholarships
+SOURCE_TYPE: Corporate CSR
+---
+RELIANCE FOUNDATION POSTGRADUATE SCHOLARSHIPS - FUTURE TECHNOLOGIES.
+        Eligibility Criteria: First-year full-time postgraduate students in select future-tech areas (Computer Science, Artificial Intelligence, Mathematics & Computing, Electrical/Electronics, Renewable Energy, Material Sciences).
+        Academic Requirements: Graduation degree with first class; valid GATE score or qualifying academic standing.
+        Course Level: Postgraduate (M.Tech / M.E. / M.Sc. in STEM).
+        Financial Benefit Amount: Up to ₹6,00,000 over the duration of degree.
+        Family Income Limit: Not specified (merit and interview based).
+        Application Deadline: 20 October 2026.
+        Official Portal Source: https://scholarships.reliancefoundation.org.
+        Direct Application Portal: https://scholarships.reliancefoundation.org.
+        Selection Process: Application screening, subject-matter expert evaluation, and interview by eminent panel of scientists and leaders.
+        Documents Required: Undergraduate transcripts, GATE scorecard, Statement of purpose, Two letters of recommendation, Admission proof.

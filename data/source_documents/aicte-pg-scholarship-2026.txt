@@ -1,0 +1,17 @@
+OFFICIAL_SOURCE_URL: https://www.aicte-india.org/schemes/students-development-schemes
+APPLICATION_URL: https://pgscholarship.aicte-india.org
+PROVIDER: All India Council for Technical Education (AICTE)
+SCHEME_NAME: AICTE Post Graduate (PG) Scholarship Scheme
+SOURCE_TYPE: Statutory Body / Ministry
+---
+ALL INDIA COUNCIL FOR TECHNICAL EDUCATION - POST GRADUATE (PG) SCHOLARSHIP.
+        Eligibility Criteria: Full-time GATE / CEED qualified students admitted to AICTE approved M.E./M.Tech/M.Pharm/M.Arch/M.Des programs.
+        Academic Requirements: Valid GATE or CEED scorecard at the time of admission.
+        Course Level: Postgraduate (M.Tech / M.E. / M.Des / M.Pharm).
+        Financial Benefit Amount: ₹12,400 per month for 24 months (2 academic years).
+        Family Income Limit: Not specified (GATE/CEED score based).
+        Application Deadline: 30 November 2026.
+        Official Portal Source: https://www.aicte-india.org/schemes/students-development-schemes.
+        Direct Application Portal: https://pgscholarship.aicte-india.org.
+        Selection Process: Direct benefit transfer to all GATE/CEED qualified students admitted to AICTE approved courses.
+        Documents Required: GATE/CEED scorecard, Institute admission slip, Bank account linked with Aadhaar (DBT active).

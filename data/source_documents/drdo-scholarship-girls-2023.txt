@@ -1,0 +1,17 @@
+OFFICIAL_SOURCE_URL: https://www.drdo.gov.in
+APPLICATION_URL: https://rac.gov.in
+PROVIDER: Defence Research and Development Organisation (DRDO)
+SCHEME_NAME: DRDO Scholarship Scheme for Girls in Aerospace & Aeronautical Engineering (2023 Cycle)
+SOURCE_TYPE: Central Government
+---
+DEFENCE RESEARCH AND DEVELOPMENT ORGANISATION (DRDO) - MINISTRY OF DEFENCE.
+        DRDO SCHOLARSHIP SCHEME FOR GIRLS IN AEROSPACE & AERONAUTICAL ENGINEERING (2023 CYCLE).
+        Eligibility Criteria: Female Indian students who secured admission to 1st year of B.E./B.Tech/M.E./M.Tech in Aerospace/Aeronautical/Avionics Engineering with valid JEE Main or GATE score.
+        Academic Requirements: Valid JEE Main / GATE score in engineering disciplines.
+        Financial Benefit Amount: ₹1,55,000 per annum for M.Tech; ₹1,20,000 per annum for B.Tech.
+        Family Income Limit: Not specified.
+        Gender: Female only.
+        Application Deadline: 31 December 2023.
+        Official Portal Source: https://www.drdo.gov.in.
+        Direct Application Portal: https://rac.gov.in.
+        Status: EXPIRED. Scheme closed on 31st December 2023.

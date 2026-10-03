@@ -1,0 +1,17 @@
+OFFICIAL_SOURCE_URL: https://www.aicte-india.org/schemes/students-development-schemes
+APPLICATION_URL: https://scholarships.gov.in
+PROVIDER: All India Council for Technical Education (AICTE)
+SCHEME_NAME: AICTE - Saksham Scholarship Scheme for Specially-Abled Students
+SOURCE_TYPE: Statutory Body / Ministry
+---
+AICTE STUDENT DEVELOPMENT SCHEMES - SAKSHAM SCHOLARSHIP.
+        Implemented by All India Council for Technical Education.
+        Eligibility Criteria: Specially-abled student having disability of not less than 40% admitted to 1st year of Degree level course in AICTE approved institution.
+        Academic Requirements: Admission to 1st year or 2nd year lateral entry in AICTE approved college.
+        Financial Benefit: ₹50,000 per annum for every year of study towards fees and equipment.
+        Family Income Limit: Family annual income not exceeding ₹8 Lakh per annum.
+        Category: PwD (Persons with Disabilities).
+        Application Deadline: 31 October 2026.
+        Official Application Portal: https://scholarships.gov.in.
+        Documents Required: Disability certificate issued by competent medical authority (minimum 40%), Income certificate, Admission letter, Fee receipt, Aadhaar card.
+        Selection Process: All eligible specially-abled candidates who apply through NSP and fulfill criteria are awarded.

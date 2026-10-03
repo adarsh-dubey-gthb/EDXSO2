@@ -1,0 +1,20 @@
+OFFICIAL_SOURCE_URL: https://www.aicte-india.org/schemes/students-development-schemes
+APPLICATION_URL: https://scholarships.gov.in
+PROVIDER: All India Council for Technical Education (AICTE)
+SCHEME_NAME: AICTE - Pragati Scholarship Scheme for Girl Students (Degree)
+SOURCE_TYPE: Statutory Body / Ministry
+---
+ALL INDIA COUNCIL FOR TECHNICAL EDUCATION (AICTE)
+        SCHEME: AICTE - PRAGATI SCHOLARSHIP SCHEME FOR GIRL STUDENTS (DEGREE)
+        OFFICIAL GUIDELINES 2026.
+        Scheme Overview: Pragati is an MHRD scheme being implemented by AICTE aimed at providing assistance for Advancement of Girls pursuing Technical Education.
+        Eligibility Criteria: Girl candidate admitted to 1st year of Degree level course OR 2nd year of Degree level course through lateral entry in any of the AICTE approved Institution of respective year. Maximum two girl children per family are eligible.
+        Academic Requirements: Admitted to 1st year degree course or 2nd year lateral entry in AICTE approved institution.
+        Financial Benefit Amount: ₹50,000 per annum for every year of study as a lump sum amount towards payment of college fees, purchase of computer, books, stationeries, equipment, softwares etc.
+        Family Income Limit: Family annual income not more than ₹8 Lakh per annum during the preceding financial year.
+        Selection Process: The selection of candidate will be carried out solely on merit of qualifying examination to pursue the Technical Degree course.
+        Application Deadline: 31 August 2026.
+        Official Portal Source: https://www.aicte-india.org/schemes/students-development-schemes.
+        Direct Application Portal: https://scholarships.gov.in.
+        Documents Required: Class 10 and 12 marksheets, Annual family income certificate from competent authority, Admission letter issued by Directorate of Technical Education, Fee receipt, Bank passbook copy, Aadhaar card.
+        Renewal Requirements: The continuation of scholarship in subsequent years will be subject to passing each academic semester/year and good conduct.

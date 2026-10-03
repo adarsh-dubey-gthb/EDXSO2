@@ -1,0 +1,17 @@
+OFFICIAL_SOURCE_URL: https://www.buddy4study.com/scholarship/vidyadhan-scholarship-program
+APPLICATION_URL: https://www.buddy4study.com/application/vidyadhan
+PROVIDER: Sarojini Damodaran Foundation
+SCHEME_NAME: Vidyadhan National Scholarship (Aggregator Mirror)
+SOURCE_TYPE: Aggregator / Secondary
+---
+BUDDY4STUDY SCHOLARSHIP PORTAL LISTING.
+        SCHEME: VIDYADHAN NATIONAL SCHOLARSHIP PROGRAM.
+        Provider: Sarojini Damodaran Foundation.
+        Eligibility Criteria: Students who passed Class 10 with 90% or 9 CGPA from state boards.
+        Academic Requirements: 90% or 9 CGPA in 10th standard.
+        Financial Benefit Amount: ₹10,000 to ₹60,000 per year.
+        Family Income Limit: Family annual income less than ₹2 Lakh per annum.
+        Application Deadline: 30 June 2026.
+        Official Portal Source: https://www.buddy4study.com/scholarship/vidyadhan-scholarship-program.
+        Direct Application Portal: https://www.buddy4study.com/application/vidyadhan.
+        Warning: Aggregator mirror. Primary foundation source should be resolved.

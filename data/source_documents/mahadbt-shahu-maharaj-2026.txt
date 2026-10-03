@@ -1,0 +1,18 @@
+OFFICIAL_SOURCE_URL: https://mahadbt.maharashtra.gov.in
+APPLICATION_URL: https://mahadbt.maharashtra.gov.in
+PROVIDER: Directorate of Higher & Technical Education, Government of Maharashtra
+SCHEME_NAME: MahaDBT Rajarshi Chhatrapati Shahu Maharaj Shikshan Shulkh Shishyavrutti Yojna
+SOURCE_TYPE: State Government
+---
+GOVERNMENT OF MAHARASHTRA - MAHADBT PORTAL.
+        RAJARSHI CHHATRAPATI SHAHU MAHARAJ SHIKSHAN SHULKH SHISHYAVRUTTI YOJNA.
+        Eligibility Criteria: Domicile of Maharashtra admitted to technical / professional undergraduate degree courses through Centralized Admission Process (CAP). Maximum 2 children per family.
+        Academic Requirements: Admitted through CAP round in recognized institution in Maharashtra.
+        Financial Benefit Amount: 50% Tuition Fee and Exam Fee reimbursement.
+        Family Income Limit: Annual family income up to ₹8.00 Lakh from all sources.
+        Domicile: State of Maharashtra only.
+        Application Deadline: 31 December 2026.
+        Official Portal Source: https://mahadbt.maharashtra.gov.in.
+        Direct Application Portal: https://mahadbt.maharashtra.gov.in.
+        Selection Process: Direct benefit transfer (DBT) verification by college nodal officer and department sanction.
+        Documents Required: Domicile certificate of Maharashtra, Income certificate from Tahsildar, CAP allotment letter, Fee receipt, Attendance certificate.

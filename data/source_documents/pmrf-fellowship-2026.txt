@@ -1,0 +1,17 @@
+OFFICIAL_SOURCE_URL: https://www.pmrf.in
+APPLICATION_URL: https://www.pmrf.in
+PROVIDER: Ministry of Education, Government of India
+SCHEME_NAME: Prime Minister's Research Fellowship (PMRF)
+SOURCE_TYPE: Central Government
+---
+MINISTRY OF EDUCATION, GOVERNMENT OF INDIA - PRIME MINISTER'S RESEARCH FELLOWSHIP (PMRF).
+        Eligibility Criteria: Direct entry or lateral entry PhD candidates admitted to IISc, IITs, IISERs, or central universities with minimum 8.0 CGPA or qualifying GATE score.
+        Academic Requirements: B.Tech/M.Tech/M.Sc with CGPA >= 8.0 from recognized central institution or GATE score >= 650.
+        Course Level: Ph.D. (Doctoral).
+        Financial Benefit Amount: ₹70,000 to ₹80,000 per month (₹70,000/month Year 1-2, ₹75,000/month Year 3, ₹80,000/month Year 4-5) plus ₹2,00,000 annual research grant.
+        Family Income Limit: Not specified.
+        Application Deadline: 15 June 2026.
+        Official Portal Source: https://www.pmrf.in.
+        Direct Application Portal: https://www.pmrf.in.
+        Selection Process: Rigorous national level review of research proposal followed by interview by National Subject Committees.
+        Documents Required: Research proposal, Academic transcripts, GATE/qualifying exam score card, Recommendation letters from supervisor.

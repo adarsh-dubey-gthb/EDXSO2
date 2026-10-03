@@ -1,0 +1,17 @@
+OFFICIAL_SOURCE_URL: https://home.iitd.ac.in
+APPLICATION_URL: https://eacademic.iitd.ac.in
+PROVIDER: Indian Institute of Technology (IIT) Delhi
+SCHEME_NAME: IIT Delhi Institute Merit-cum-Means (MCM) Scholarship
+SOURCE_TYPE: University / Premier Institution
+---
+INDIAN INSTITUTE OF TECHNOLOGY (IIT) DELHI - ACADEMIC FINANCIAL AID.
+        MERIT-CUM-MEANS (MCM) SCHOLARSHIP.
+        Eligibility Criteria: Undergraduate B.Tech and Dual Degree students whose gross family annual income does not exceed ₹4.5 Lakh and CGPA is minimum 6.0.
+        Academic Requirements: Minimum cumulative grade point average (CGPA) of 6.0 with no backlogs.
+        Financial Benefit Amount: 100% Tuition fee waiver plus ₹1,000 per month pocket allowance.
+        Family Income Limit: Gross family annual income not exceeding ₹4.5 Lakh per annum.
+        Application Deadline: 15 September 2026.
+        Official Portal Source: https://home.iitd.ac.in.
+        Direct Application Portal: https://eacademic.iitd.ac.in.
+        Selection Process: Strict verification of income documentation and CGPA ranking up to 25% of batch size.
+        Documents Required: Parental income certificate / ITR V acknowledgement, Form 16, Salary slip, Affidavit on stamp paper.

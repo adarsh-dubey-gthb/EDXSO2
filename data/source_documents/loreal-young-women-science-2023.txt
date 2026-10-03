@@ -1,0 +1,17 @@
+OFFICIAL_SOURCE_URL: https://www.loreal.com
+APPLICATION_URL: https://www.loreal.com/en/india/
+PROVIDER: L'Oreal India
+SCHEME_NAME: L'Oreal India For Young Women In Science Scholarship (2023 Cycle)
+SOURCE_TYPE: Corporate CSR
+---
+L'OREAL INDIA - FOR YOUNG WOMEN IN SCIENCE SCHOLARSHIP (2023 CYCLE).
+        Eligibility Criteria: Female students who passed Class 12 in Science stream with minimum 85% in PCM/PCB during academic year 2022-23.
+        Academic Requirements: Minimum 85% aggregate in Class 12 board examination.
+        Financial Benefit Amount: Up to ₹2,50,000 for graduation in science/engineering/medicine.
+        Family Income Limit: Annual family income not exceeding ₹6.00 Lakh.
+        Age Limit: Maximum 19 years.
+        Gender: Female only.
+        Application Deadline: 15 October 2023.
+        Official Portal Source: https://www.loreal.com.
+        Direct Application Portal: https://www.loreal.com/en/india/.
+        Status: EXPIRED. Applications closed on 15 October 2023.
