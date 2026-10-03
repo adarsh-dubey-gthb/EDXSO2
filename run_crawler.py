@@ -28,15 +28,8 @@ def main():
 
     if args.reset:
         print("Resetting database...")
-        conn = get_connection()
-        cursor = conn.cursor()
-        cursor.execute("DROP TABLE IF EXISTS verification_evidence")
-        cursor.execute("DROP TABLE IF EXISTS change_history")
-        cursor.execute("DROP TABLE IF EXISTS crawl_runs")
-        cursor.execute("DROP TABLE IF EXISTS scholarships")
-        conn.commit()
-        conn.close()
-        init_db()
+        from storage.database import reset_db
+        reset_db()
         print("Database initialized cleanly.")
 
     pipeline = ScholarshipPipeline()

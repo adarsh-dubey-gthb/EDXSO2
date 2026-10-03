@@ -16,6 +16,19 @@ def get_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
+def reset_db():
+    """Clears and re-initializes all tables to establish clean baseline state."""
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("DROP TABLE IF EXISTS verification_evidence")
+    cursor.execute("DROP TABLE IF EXISTS change_history")
+    cursor.execute("DROP TABLE IF EXISTS crawl_runs")
+    cursor.execute("DROP TABLE IF EXISTS scholarships")
+    cursor.execute("DROP TABLE IF EXISTS discovered_seeds")
+    conn.commit()
+    conn.close()
+    init_db()
+
 def init_db():
     """Initializes tables for scholarships, verification evidence, change history, and crawl runs."""
     conn = get_connection()

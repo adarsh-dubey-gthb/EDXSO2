@@ -134,22 +134,24 @@ with st.sidebar:
     st.info("🤖 **100% Autonomous Mode Active**\nTraverses seeds, searches live web gazettes, extracts schemas, and detects changes automatically without manual input.")
     col_c1, col_c2 = st.columns(2)
     with col_c1:
-        if st.button("▶ Run 1: Baseline", use_container_width=True, help="Executes initial crawl & discovery cycle"):
-            pipeline = ScholarshipPipeline()
-            with st.spinner("Running initial discovery & verification..."):
+        if st.button("▶ Run 1: Baseline", use_container_width=True, help="Resets to baseline state and runs initial discovery & ingestion"):
+            from storage.database import reset_db
+            with st.spinner("Resetting to clean baseline & ingesting initial schemes..."):
+                reset_db()
+                pipeline = ScholarshipPipeline()
                 summary = pipeline.run_pipeline(run_number=1)
-                st.success(f"Run 1 complete! Discovered: {summary.total_discovered}")
+                st.success(f"Run 1 complete! Baseline set: {summary.total_discovered} schemes (0 changes).")
                 st.rerun()
 
     with col_c2:
-        if st.button("🔄 Run 2: Re-Crawl", use_container_width=True, help="Executes second cycle to detect changes & deadline extensions"):
+        if st.button("🔄 Run 2: Re-Crawl", use_container_width=True, help="Executes re-crawl with official corrigenda to detect changes"):
             pipeline = ScholarshipPipeline()
-            with st.spinner("Executing continuous crawl & detecting changes..."):
+            with st.spinner("Executing re-crawl & detecting official revisions..."):
                 summary = pipeline.run_pipeline(run_number=2)
-                st.success(f"Run 2 complete! Changes: {summary.changes_detected_count}")
+                st.success(f"Run 2 complete! {summary.changes_detected_count} changes detected & logged.")
                 st.rerun()
 
-    st.caption("ℹ️ *Note: 'Run 1' and 'Run 2' buttons are instant manual shortcuts for demonstration so evaluators don't have to wait.*")
+    st.caption("ℹ️ *Click 'Run 1' to establish baseline, then 'Run 2' to demonstrate live change detection & corrigendum auditing.*")
     
     auto_crawl = st.toggle("⏱️ Continuous Auto-Crawl Daemon", value=False, help="Runs the autonomous crawler in the background")
     if auto_crawl:
