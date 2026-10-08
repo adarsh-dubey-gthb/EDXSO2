@@ -201,13 +201,10 @@ class NLPScholarshipExtractor:
             if m_link:
                 app_url = m_link.group(1)
 
-        # If still no application URL, derive from the official source URL (not hardcoded scholarships.gov.in)
-        if not app_url:
-            parsed_src = re.match(r'(https?://[^/]+)', source_url)
-            app_url = parsed_src.group(1) if parsed_src else "https://scholarships.gov.in"
-
+        # If still no application URL, derive from the official source URL dynamically
         if not app_url or app_url == "Not specified":
-            app_url = "https://scholarships.gov.in"
+            parsed_src = re.match(r'(https?://[^/]+)', source_url)
+            app_url = parsed_src.group(1) if parsed_src else source_url
 
         # 16. Documents Required
         docs = "Standard documents: Marksheets, Income certificate, Admission proof, Bank details, Identity proof"
@@ -229,6 +226,9 @@ class NLPScholarshipExtractor:
 
         # Primary Evidence Quote (Extracted directly from source text window)
         evidence_snippet = text_clean[:250] + "..." if len(text_clean) > 250 else text_clean
+
+        from datetime import datetime
+        current_date_str = datetime.now().strftime("%Y-%m-%d")
 
         return ScholarshipRecord(
             id=doc_id,
@@ -255,7 +255,7 @@ class NLPScholarshipExtractor:
             current_status="ACTIVE",
             confidence_score=0.0,
             verification_status="REVIEW_REQUIRED",
-            date_last_verified="2026-10-03",
+            date_last_verified=current_date_str,
             why_this_score="",
             source_evidence=evidence_snippet
         )

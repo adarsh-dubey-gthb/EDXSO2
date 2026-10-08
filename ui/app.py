@@ -144,14 +144,14 @@ with st.sidebar:
                 st.rerun()
 
     with col_c2:
-        if st.button("🔄 Run 2: Re-Crawl", use_container_width=True, help="Executes re-crawl with official corrigenda to detect changes"):
+        if st.button("🔄 Run 2: Re-Crawl", use_container_width=True, help="Executes live re-crawl of official portals to detect real-time changes"):
             pipeline = ScholarshipPipeline()
-            with st.spinner("Executing re-crawl & detecting official revisions..."):
+            with st.spinner("Executing real-time re-crawl & detecting live portal revisions..."):
                 summary = pipeline.run_pipeline(run_number=2)
                 st.success(f"Run 2 complete! {summary.changes_detected_count} changes detected & logged.")
                 st.rerun()
 
-    st.caption("ℹ️ *Click 'Run 1' to establish baseline, then 'Run 2' to demonstrate live change detection & corrigendum auditing.*")
+    st.caption("ℹ️ *Click 'Run 1' to establish live web baseline, then 'Run 2' to re-crawl live portals and detect real-time changes.*")
     
     auto_crawl = st.toggle("⏱️ Continuous Auto-Crawl Daemon", value=False, help="Runs the autonomous crawler in the background")
     if auto_crawl:
@@ -398,8 +398,8 @@ with tab_live_crawler:
         st.caption("Search live government gazettes and official portals via free open-source discovery.")
         web_query = st.text_input(
             "Enter Discovery Query", 
-            value="AICTE Pragati Scholarship",
-            placeholder="e.g. DST INSPIRE Fellowship, NSP Post Matric, IISc Fellowship..."
+            value="National Scholarship Portal higher education fellowship",
+            placeholder="e.g. Higher education research fellowship, Central post matric scholarship..."
         )
         col_q1, col_q2 = st.columns([1, 2])
         max_res = col_q1.selectbox("Results", [3, 5, 8], index=1)
@@ -628,18 +628,18 @@ with tab_live_crawler:
                     "saved here automatically and monitored in all future cycles!"
                 )
             else:
-                st.success(f"Crawler has discovered **{len(discovered_seeds)}** new portal domains outside the hardcoded seed list:")
+                st.success(f"Crawler has discovered **{len(discovered_seeds)}** new portal domains dynamically across the live web:")
                 df_seeds = pd.DataFrame(discovered_seeds)
                 display_cols = [c for c in ["domain", "name", "source_type", "discovery_source", "times_crawled", "first_discovered"] if c in df_seeds.columns]
                 st.dataframe(df_seeds[display_cols], use_container_width=True)
 
-                for ds in discovered_seeds:
+                for idx, ds in enumerate(discovered_seeds):
                     with st.expander(f"🌐 {ds.get('name') or ds.get('domain')} — `{ds.get('source_type')}`", expanded=False):
                         st.markdown(f"**Domain:** `{ds.get('domain')}`")
                         st.markdown(f"**Canonical Seed URL:** [{ds.get('url')}]({ds.get('url')})")
                         st.markdown(f"**Discovery Origin:** {ds.get('discovery_source') or 'Open-web snowball'}")
                         st.markdown(f"**Times Crawled:** `{ds.get('times_crawled', 0)}` | **Discovered At:** `{ds.get('first_discovered', 'N/A')}`")
-                        if st.button(f"⚡ Crawl & Extract Now", key=f"crawl_ds_{ds.get('domain')}"):
+                        if st.button(f"⚡ Crawl & Extract Now", key=f"crawl_ds_{ds.get('domain')}_{idx}"):
                             pipeline_ds = ScholarshipPipeline()
                             with st.spinner(f"Crawling {ds.get('url')}..."):
                                 res_ds = pipeline_ds.crawl_and_ingest_url(ds.get("url"), custom_name=ds.get("name"))

@@ -68,38 +68,85 @@ class ScholarshipPipeline:
             sample_classifications[c['url']] = c['source_type']
             print(f"  -> {c['url'][:55]}... -> [{c['source_type']}] (Authoritative: {c['is_authoritative']})")
 
-        # Load baseline crawled portal documents dynamically from discovery engine
-        data_to_process = self.discovery.load_source_documents()
-
-        # DYNAMIC LIVE DISCOVERY INGESTION (Section 12 Compliance):
-        # Automatically fetch, crawl and ingest newly discovered candidate schemes from the live web
+        # 100% REAL-TIME LIVE DATA INGESTION:
+        # No hardcoded lists or static text files. Data is fetched live from official web portals.
+        data_to_process = []
         existing_sources = set()
-        try:
-            conn = get_connection()
-            rows = conn.execute("SELECT official_source FROM scholarships").fetchall()
-            existing_sources = {r[0].lower().rstrip('/') for r in rows if r[0]}
-            conn.close()
-        except Exception:
-            pass
 
+        if run_number >= 2:
+            # REAL-TIME RE-CRAWL & AUDIT CYCLE:
+            # Query all existing schemes from the database and re-crawl their live URLs in real-time over HTTP
+            print("\n[STAGE 2.5: LIVE RE-CRAWL & DATA FRESHNESS CHECK] Re-fetching active database records from live web...")
+            try:
+                conn = get_connection()
+                c = conn.cursor()
+                c.execute("SELECT id, name, provider, official_source, application_url, source_type FROM scholarships")
+                existing_rows = c.fetchall()
+                conn.close()
+
+                for row in existing_rows:
+                    rec_id, rec_name, rec_prov, rec_source, rec_app, rec_stype = row[0], row[1], row[2], row[3], row[4], row[5]
+                    existing_sources.add(rec_source.lower().rstrip('/'))
+                    print(f"  [RE-CRAWL] Fetching live state for: '{rec_name}' ({rec_source[:50]})...")
+                    live_page = self.discovery.fetch_and_clean_page(rec_source)
+                    data_to_process.append({
+                        "id": rec_id,
+                        "url": rec_source,
+                        "application_url": rec_app or rec_source,
+                        "provider": rec_prov,
+                        "name": rec_name,
+                        "source_type": rec_stype,
+                        "raw_content": live_page.get("clean_text", ""),
+                        "http_status": live_page.get("status_code", 200)
+                    })
+            except Exception as e:
+                print(f"  [RE-CRAWL ERROR] Could not load prior records: {e}")
+        else:
+            try:
+                conn = get_connection()
+                rows = conn.execute("SELECT official_source FROM scholarships").fetchall()
+                existing_sources = {r[0].lower().rstrip('/') for r in rows if r[0]}
+                conn.close()
+            except Exception:
+                pass
+
+        # DYNAMIC LIVE DISCOVERY INGESTION:
+        # Ingest candidate links discovered from live web / seeds in real-time
         newly_crawled_count = 0
-        for cand in discovered_links:
+        candidate_queue = list(discovered_links)
+
+        # Baseline: Ensure all authoritative seed portals are examined if not yet queued
+        if run_number == 1:
+            from config.seed_sources import SEED_SOURCES
+            for s in SEED_SOURCES:
+                s_url = s["url"]
+                if s_url.lower().rstrip('/') not in existing_sources:
+                    candidate_queue.append({
+                        "url": s_url,
+                        "anchor_text": s["name"],
+                        "parent_seed": s["name"],
+                        "source_type": s.get("category", "Central Government"),
+                        "is_authoritative": s.get("is_authoritative", True)
+                    })
+
+        for cand in candidate_queue:
             cand_url = cand.get("url", "").strip()
             norm_cand_url = cand_url.lower().rstrip('/')
             
             if not cand_url or norm_cand_url in existing_sources:
                 continue
+            existing_sources.add(norm_cand_url)
             if not cand.get("is_authoritative", False):
                 continue
 
             parsed_cand = urlparse(cand_url)
-            # Skip root portals or generic homepages
-            if parsed_cand.path in ["", "/", "/home", "/index.html"]:
+            # Skip generic non-scheme endpoints
+            if parsed_cand.path in ["/login", "/register", "/contact", "/about", "/faq"]:
                 continue
 
             print(f"  [DISCOVERY -> CRAWL] Fetching newly discovered scheme notice: {cand_url[:65]}...")
             page_data = self.discovery.fetch_and_clean_page(cand_url)
-            if page_data["success"] and len(page_data["clean_text"]) > 200:
+            if page_data["success"] and len(page_data["clean_text"]) > 100:
                 slug_name = cand.get("anchor_text") or page_data["title"] or "scheme"
                 doc_id = re.sub(r'[^a-zA-Z0-9]+', '-', slug_name.lower()).strip('-')[:45]
                 if not doc_id:
@@ -111,7 +158,6 @@ class ScholarshipPipeline:
                 )
                 if not is_valid_scheme:
                     print(f"  [SEMANTIC VALIDATOR] Skipped: {val_reason}")
-                    # If this is a directory/portal hub, add it to discovered_seeds for link discovery
                     if val_meta.get("type") == "DIRECTORY_HUB":
                         try:
                             hub_domain = parsed_cand.netloc.lower()
@@ -123,10 +169,15 @@ class ScholarshipPipeline:
                                 is_authoritative=cand.get("is_authoritative", False),
                                 discovery_source="Autonomous Frontier Expansion"
                             )
+                            # Extract scheme links from inside this directory hub and queue them!
+                            hub_links = self.discovery.extract_scheme_links(page_data.get("raw_html", ""), cand_url)
+                            for hl in hub_links:
+                                hl_norm = hl["url"].lower().rstrip('/')
+                                if hl_norm not in existing_sources:
+                                    candidate_queue.append(hl)
                         except Exception:
                             pass
                     continue
-
 
                 data_to_process.append({
                     "id": doc_id,
@@ -135,53 +186,16 @@ class ScholarshipPipeline:
                     "provider": cand.get("parent_seed", "National Educational Authority"),
                     "name": page_data["title"] or cand.get("anchor_text", "Discovered Scholarship Scheme"),
                     "source_type": cand.get("source_type", "Central Government"),
-                    "raw_content": page_data["clean_text"]
+                    "raw_content": page_data["clean_text"],
+                    "http_status": page_data.get("status_code", 200)
                 })
                 existing_sources.add(norm_cand_url)
                 newly_crawled_count += 1
-                if newly_crawled_count >= 8:  # Ingest up to 8 new schemes per crawl run
+                if newly_crawled_count >= 25:  # Ingest up to 25 authentic schemes
                     break
 
         if newly_crawled_count > 0:
             print(f"  -> Ingested {newly_crawled_count} newly discovered schemes from live web into pipeline!")
-
-        # In Run 2, demonstrate dynamic change detection from revised notification texts (Section 6 & 7):
-        if run_number >= 2:
-            print("\n[STAGE 6: RE-CRAWL & CHANGE DETECTION] Ingesting official gazette revisions & corrigenda:")
-            for item in data_to_process:
-                # Change 1: AICTE Pragati deadline extension in raw notice text
-                if item["id"] == "aicte-pragati-degree-2026":
-                    print("  -> Corrigendum Ingested: AICTE Pragati deadline extension notice detected!")
-                    item["raw_content"] += "\nOFFICIAL CORRIGENDUM 2026: Last date / Application Deadline extended to 15 September 2026."
-                
-                # Change 2: Reliance Foundation benefit increase in raw notice text
-                if item["id"] == "reliance-ug-scholarship-2026":
-                    print("  -> Grant Revision Ingested: Reliance UG financial benefit revision detected!")
-                    item["raw_content"] += "\nANNUAL REVISION: Financial Benefit Amount: Up to ₹2,50,000 over degree duration + Mentorship."
-
-            # Dynamically discovered newly in Run 2:
-            data_to_process.append({
-                "id": "infosys-foundation-stem-stars-2026",
-                "url": "https://www.infosys.org",
-                "application_url": "https://www.infosys.org/infosys-foundation",
-                "provider": "Infosys Foundation",
-                "name": "Infosys Foundation STEM Stars Scholarship",
-                "source_type": "Corporate CSR",
-                "raw_content": """
-                INFOSYS FOUNDATION - STEM STARS SCHOLARSHIP 2026.
-                Official Provider: Infosys Foundation.
-                Eligibility Criteria: Girl students entering 1st year of undergraduate degree in STEM disciplines in NIRF accredited colleges.
-                Academic Requirements: Class 12 passed with minimum 75% marks in STEM subjects.
-                Financial Benefit Amount: ₹1,00,000 per annum for duration of course.
-                Family Income Limit: Annual family income not exceeding ₹8 Lakh.
-                Gender: Female only.
-                Application Deadline: 31 December 2026.
-                Official Portal Source: https://www.infosys.org.
-                Direct Application Portal: https://www.infosys.org/infosys-foundation.
-                Selection Process: Merit screening and background check.
-                Documents Required: Class 12 marksheet, NIRF college admission fee receipt, Parent income certificate.
-                """
-            })
 
         # STAGE 3, 4, 5: CRAWLING, EXTRACTION, VERIFICATION
         total_discovered = len(data_to_process)
@@ -211,7 +225,7 @@ class ScholarshipPipeline:
             )
             
             # STAGE 5: VERIFICATION & CONFIDENCE SCORING
-            http_status = 200
+            http_status = raw_item.get("http_status", 200)
 
             # Calculate deterministic confidence score (NO arbitrary LLM score!)
             conf_score, v_status, why_score, breakdown = ConfidenceEngine.calculate_confidence(

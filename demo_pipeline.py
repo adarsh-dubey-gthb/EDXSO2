@@ -87,9 +87,11 @@ def main():
     
     # Step 8: Displays scholarship
     print_step(8, "Displays Scholarship Details")
-    sample_id = "aicte-pragati-degree-2026"
-    rec = get_scholarship(sample_id)
-    if rec:
+    from storage.database import list_scholarships
+    all_recs = list_scholarships()
+    if all_recs:
+        rec = all_recs[0]
+        sample_id = rec['id']
         print(f"Name:               {rec['name']}")
         print(f"Provider:           {rec['provider']}")
         print(f"Source Type:        {rec['source_type']}")

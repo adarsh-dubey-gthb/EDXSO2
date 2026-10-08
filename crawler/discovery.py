@@ -23,53 +23,44 @@ from crawler.classifier import SourceClassifier
 from config.seed_sources import SEED_SOURCES
 
 SCHOLARSHIP_KEYWORDS = [
-    # Core educational and student terms (no bare words like 'scheme' or 'grant')
+    # Core educational, scholarship, fellowship and student aid terms (pure generic keywords)
     "scholarship", "fellowship", "stipend", "bursary", "tuition",
     "post-matric", "pre-matric", "higher-education", "free-education",
-    "inspire-she", "inspire-fellowship", "pragati", "saksham", "swanath",
-    "means-cum-merit", "merit-scholarship", "top-class-education",
-    "research-fellowship", "jrf", "srf", "phd-fellowship", "doctoral",
-    "girl-scholarship", "women-scientist", "chhatravritti", "vidyarthi",
-    "ekalyan", "oasis", "mahadbt", "pmrf", "ongc-scholar",
-    "student-scholarship", "national-scholarship", "education-grant"
+    "means-cum-merit", "merit-cum-means", "merit-scholarship",
+    "research-fellowship", "doctoral-fellowship", "phd-fellowship",
+    "education-grant", "academic-grant", "financial-aid", "fee-waiver",
+    "fee-reimbursement", "student-aid", "student-stipend",
+    "chhatravritti", "shishyavrutti", "vidyarthi"
 ]
 
-# Topic queries for open-web search — strictly qualified with educational keywords
+# Topic queries for open-web search — strictly qualified with educational keywords (no hardcoded scheme titles)
 AUTONOMOUS_DISCOVERY_TOPICS = [
-
     # Central Government Portals & Schemes
     "National Scholarship Portal official portal scholarships.gov.in schemes students",
-    "AICTE technical education scholarship Pragati Saksham scheme guidelines students",
-    "Ministry of Education scholarship scheme post matric students site:gov.in",
-    "Ministry of Social Justice post matric scholarship SC ST OBC students portal",
-    "Ministry of Tribal Affairs higher education scholarship ST students portal",
-    "Ministry of Minority Affairs post-matric scholarship students portal",
+    "technical education students development scholarship schemes guidelines",
+    "Ministry of Education scholarship schemes post matric students official portal",
+    "Ministry of Social Justice post matric scholarship students portal",
+    "Ministry of Tribal Affairs higher education scholarship students portal",
+    "Ministry of Minority Affairs post matric scholarship students portal",
     # Science & Research Fellowships
-    "Department of Science and Technology INSPIRE fellowship guidelines online-inspire.gov.in",
-    "DST Women Scientist Scheme WOS-A fellowship students guidelines",
-    "CSIR Junior Research Fellowship JRF NET exam fellowship guidelines csirhrdg.res.in",
-    "ICMR Senior Research Fellowship biomedical research students fellowship",
-    "Prime Minister Research Fellowship PMRF official portal IIT IISc pmrf.in",
-    "UGC Junior Research Fellowship JRF fellowship guidelines students ugcnet",
-    # Corporate CSR & Foundations
-    "Reliance Foundation undergraduate postgraduate scholarship eligibility apply",
-    "Tata Trusts higher education scholarship means merit students",
-    "Infosys Foundation STEM Stars scholarship girl students engineering",
-    "HDFC Parivartan scholarship program school college students",
-    "Wipro Foundation higher education scholarship grant students",
-    "Kotak Education Foundation scholarship meritorious 12th passed students",
-    "Azim Premji Foundation education fellowship students India",
-    "ONGC Foundation scholarship SC ST OBC college students",
-    # State Portals
-    "MahaDBT Maharashtra government scholarship portal post matric students",
-    "UP scholarship portal scholarship.up.gov.in post matric students",
-    "Bihar eKalyan post matric scholarship students official portal ekalyan.bih.nic.in",
-    "Karnataka State Scholarship Portal SSP post matric students sw.kar.nic.in",
-    "West Bengal OASIS scholarship oasis.gov.in post matric students",
-    # Specialised
-    "Scholarship for girl students engineering degree STEM India 2026",
-    "PwD disability scholarship student higher education India 2026",
-    "Means cum merit scholarship students site:gov.in",
+    "Department of Science and Technology research fellowship guidelines official",
+    "Council of Scientific and Industrial Research research fellowship guidelines students",
+    "Indian Council of Medical Research research fellowship guidelines students",
+    "Prime Minister Research Fellowship official portal higher education students",
+    "University Grants Commission research fellowships guidelines students",
+    # Corporate CSR & Philanthropic Foundations
+    "Corporate CSR undergraduate postgraduate higher education scholarship students apply",
+    "philanthropic trust higher education scholarship merit students",
+    "foundation STEM higher education scholarship girl students engineering",
+    "education foundation scholarship program school college students India",
+    "charitable foundation higher education scholarship students India",
+    # State Government Portals
+    "State Government post matric scholarship portal students higher education",
+    "State scholarship portal post matric pre matric students apply online",
+    # Specific Academic Categories
+    "scholarship for girl students higher education degree STEM India",
+    "disability PwD scholarship students higher education India",
+    "merit cum means scholarship higher education students site:gov.in"
 ]
 
 IGNORE_EXTENSIONS = [
@@ -182,7 +173,7 @@ class DiscoveryEngine:
                     cand_text = (tc.get("title", "") + " " + tc.get("snippet", "") + " " + url).lower()
                     is_edu = any(k in cand_text for k in [
                         "scholarship", "fellowship", "stipend", "student", "education", 
-                        "post-matric", "pre-matric", "inspire", "pragati", "jrf", "srf", "phd", "chhatravritti"
+                        "post-matric", "pre-matric", "research", "doctoral", "phd", "tuition", "chhatravritti", "shishyavrutti"
                     ])
 
                     if (domain_root not in BLOCKED_DOMAINS 
@@ -228,7 +219,7 @@ class DiscoveryEngine:
         seeds: List[Dict[str, Any]],
         max_links_per_seed: int = 8,
         depth: int = 2,
-        max_pages_to_crawl: int = 8,
+        max_pages_to_crawl: int = 25,
         save_new_domains: bool = True
     ) -> List[Dict[str, Any]]:
         """
@@ -303,8 +294,10 @@ class DiscoveryEngine:
                     continue
 
                 link_text = tag.get_text(separator=" ", strip=True).lower()
-                url_lower = full_url.lower()
-                has_keyword = any(k in link_text or k in url_lower for k in SCHOLARSHIP_KEYWORDS)
+                path_lower = parsed.path.lower()
+                query_lower = parsed.query.lower()
+                # Check link text or URL path/query (not domain hostname itself) for scholarship keywords
+                has_keyword = any(k in link_text or k in path_lower or k in query_lower for k in SCHOLARSHIP_KEYWORDS)
 
                 if has_keyword and full_url not in self.discovered_urls:
                     self.discovered_urls.add(full_url)
@@ -324,10 +317,10 @@ class DiscoveryEngine:
                     links_extracted_this_page += 1
 
                     # ── TIER 3: Persistent Frontier Expansion ─────────────
-                    cand_link_text = (link_text + " " + full_url).lower()
+                    cand_link_text = (link_text + " " + path_lower).lower()
                     is_edu_link = any(k in cand_link_text for k in [
                         "scholarship", "fellowship", "stipend", "student", "education",
-                        "post-matric", "pre-matric", "inspire", "pragati", "jrf", "phd", "chhatravritti"
+                        "post-matric", "pre-matric", "research", "doctoral", "phd", "tuition", "chhatravritti", "shishyavrutti"
                     ])
 
                     if (is_external
@@ -442,9 +435,12 @@ class DiscoveryEngine:
 
             with DDGS() as ddgs:
                 try:
-                    results = list(ddgs.text(search_query, backend="html", max_results=max_results))
+                    results = list(ddgs.text(search_query, max_results=max_results))
                 except Exception:
-                    results = list(ddgs.text(search_query, backend="lite", max_results=max_results))
+                    try:
+                        results = list(ddgs.text(search_query, backend="html", max_results=max_results))
+                    except Exception:
+                        results = []
 
             for r in results:
                 url = r.get("href") or r.get("link", "")
@@ -502,5 +498,39 @@ class DiscoveryEngine:
             "status_code": status_code,
             "url": final_url or url,
             "title": title,
-            "clean_text": clean_text
+            "clean_text": clean_text,
+            "raw_html": html
         }
+
+    def extract_scheme_links(self, html: str, base_url: str) -> List[Dict[str, Any]]:
+        """Extracts candidate scholarship/fellowship hyperlinks from a directory hub or portal page."""
+        if not html:
+            return []
+        soup = BeautifulSoup(html, "html.parser")
+        links = []
+        for tag in soup.find_all("a", href=True):
+            href = tag.get("href", "").strip()
+            if not href or href.startswith(("#", "javascript:", "mailto:", "tel:")):
+                continue
+            full_url = urljoin(base_url, href)
+            parsed = urlparse(full_url)
+            if any(parsed.path.lower().endswith(ext) for ext in IGNORE_EXTENSIONS):
+                continue
+            link_domain = parsed.netloc.lower()
+            link_domain_root = re.sub(r'^www\.', '', link_domain)
+            if link_domain_root in BLOCKED_DOMAINS:
+                continue
+            link_text = tag.get_text(separator=" ", strip=True).lower()
+            path_lower = parsed.path.lower()
+            query_lower = parsed.query.lower()
+            if any(k in link_text or k in path_lower or k in query_lower for k in SCHOLARSHIP_KEYWORDS):
+                source_type, is_auth, reason = SourceClassifier.classify_source(full_url)
+                links.append({
+                    "url": full_url,
+                    "anchor_text": tag.get_text(strip=True)[:100],
+                    "parent_seed": base_url,
+                    "source_type": source_type,
+                    "is_authoritative": is_auth,
+                    "classification_reason": reason
+                })
+        return links

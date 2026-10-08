@@ -25,17 +25,25 @@ class SemanticScholarshipValidator:
     """
 
     # --- INVARIANT 1: SCHOLARSHIP / FELLOWSHIP PROGRAM IDENTITY SIGNALS ---
+    # Pure generic semantic invariants: NO hardcoded specific scheme names (e.g. pragati, inspire, pmrf, etc.)
     SCHEME_IDENTITY_PATTERNS = [
         r'\bscholarships?\b', r'\bfellowships?\b', r'\bstipends?\b',
-        r'\bbursar(?:y|ies)\b', r'\btuition\s+waiver\b', r'\bfinancial\s+aid\b',
-        r'\beducation(?:al)?\s+(?:schemes?|grants?|supports?|assistance|awards?)\b',
-        r'\bstudent\s+(?:schemes?|grants?|supports?|assistance|awards?)\b',
-        r'\bmerit[\s\-]cum[\s\-]means\b', r'\bhigher\s+education\s+scheme\b',
+        r'\bbursar(?:y|ies)\b', r'\btuition\s+(?:waiver|reimbursement|support|concession)\b',
+        r'\bfinancial\s+(?:aid|assistance|support)\b',
+        r'\beducation(?:al)?\s+(?:schemes?|grants?|supports?|assistance|awards?|aid)\b',
+        r'\bstudent\s+(?:schemes?|grants?|supports?|assistance|awards?|aid|stipend)\b',
+        r'\bmerit[\s\-]cum[\s\-]means\b', r'\bmerit\s+scholarships?\b', r'\bmeans\s+scholarships?\b',
+        r'\bhigher\s+education\s+(?:scheme|grant|aid|scholarship)\b',
         r'\bpost[\s\-]matric\b', r'\bpre[\s\-]matric\b',
-        r'\binspire[\s\-]she\b', r'\bpragati\b', r'\bsaksham\b', r'\bswanath\b',
-        r'\bjrf\b', r'\bsrf\b', r'\bpmrf\b', r'\bvidyadhan\b', r'\bwomen\s+in\s+science\b',
-        r'\btop\s+class(?:\s+education)?(?:\s+scheme)?\b', r'\bshikshan\s+shulkh\b',
-        r'\bshishyavrutti\b', r'\bchhatravritti\b',
+        r'\bresearch\s+(?:fellowship|grant|award|stipend)\b',
+        r'\bdoctoral\s+(?:fellowship|scholarship|grant)\b',
+        r'\bpost[\s\-]doctoral\s+(?:fellowship|grant)\b',
+        r'\bfee\s+(?:concession|reimbursement|waiver|subsidy)\b',
+        r'\baccommodation\s+grant\b', r'\bcontingency\s+grant\b',
+        r'\bbook\s+grant\b', r'\bmaintenance\s+allowance\b',
+        r'\bmeritorious\s+students?\s+scheme\b',
+        # Multilingual common academic aid descriptors
+        r'\bshikshan\s+shulkh\b', r'\bshishyavrutti\b', r'\bchhatravritti\b',
         r'\bछात्रवृत्ति\b', r'\bशिष्यवृत्ती\b', r'\bमेधावी\s+छात्र\b', r'\bविद्यार्थी\s+सहायता\b'
     ]
 
@@ -110,15 +118,19 @@ class SemanticScholarshipValidator:
         if len(words) <= 2 and clean_title in ["home", "about", "about us", "students", "schemes", 
                                                "downloads", "login", "dashboard", "services", 
                                                "faq", "faqs", "contact", "contact us", "portal",
-                                               "mahadbt", "welcome"]:
+                                               "welcome"]:
             return True, f"Title '{title}' is a generic navigation label."
 
         # 4. Root path ('/' or '') on multi-service / departmental portals
         if path in ["", "/"]:
-            # If it's a root path, it can ONLY be accepted if it has an explicit specific scheme/fellowship in its title
-            has_explicit_scheme = any(re.search(pat, norm_title) for pat in cls.SCHEME_IDENTITY_PATTERNS)
+            norm_body = (text or "").lower()[:1500]
+            # If it's a root path, accept if title or prominent header text defines a scholarship/fellowship program
+            has_explicit_scheme = (
+                any(re.search(pat, norm_title) for pat in cls.SCHEME_IDENTITY_PATTERNS) or
+                any(re.search(pat, norm_body) for pat in cls.SCHEME_IDENTITY_PATTERNS)
+            )
             if not has_explicit_scheme:
-                return True, f"Root domain '{parsed_url.netloc}' without specific scholarship title is treated as directory hub."
+                return True, f"Root domain '{parsed_url.netloc}' without explicit scholarship/fellowship identity is treated as directory hub."
 
 
         return False, "Node appears to be an individual content notice."
@@ -139,7 +151,7 @@ class SemanticScholarshipValidator:
         """
         norm_title = (title or "").lower().strip()
         norm_text = (text_content or "").lower()
-        header_text = norm_text[:2500]
+        header_text = norm_text[:10000]
 
         # STEP 1: DIRECTORY HUB & PORTAL SEPARATION GATE
         is_hub, hub_reason = cls.is_directory_or_portal_hub(url, title, text_content)
@@ -159,18 +171,19 @@ class SemanticScholarshipValidator:
         # STEP 3: INVARIANT 2 — ACADEMIC BENEFICIARY VALIDATION
         # Must affirmatively target students, scholars, researchers, or specific academic stages
         academic_matches = [pat for pat in cls.ACADEMIC_BENEFICIARY_PATTERNS if re.search(pat, header_text)]
-        if len(academic_matches) < 2:
-            return False, f"Contract Failure (Pillar 2): Document lacks verifiable academic beneficiary (target students/scholars). Matched: {len(academic_matches)}/2 required.", {
+        if len(academic_matches) < 1:
+            return False, f"Contract Failure (Pillar 2): Document lacks verifiable academic beneficiary (target students/scholars).", {
                 "type": "LACKS_ACADEMIC_BENEFICIARY"
             }
 
         # STEP 4: INVARIANT 3 — EDUCATIONAL FUNDING PURPOSE VALIDATION
         # Must affirmatively provide educational financial support (fees, stipend, grant, contingency)
         has_financial_benefit = any(re.search(pat, header_text) for pat in cls.EDUCATIONAL_PURPOSE_PATTERNS)
-        # Also accept if specific monetary currency patterns are present in educational context
+        # Also accept if specific monetary currency patterns or fee waiver words are present in educational context
         has_monetary_currency = bool(re.search(r'(?:₹|rs\.?|inr)\s*[\d,]+', header_text))
+        has_waiver_or_support = any(w in header_text for w in ["waiver", "stipend", "allowance", "grant", "reimbursement", "award", "freeship", "financial aid", "assistance"])
         
-        if not (has_financial_benefit or has_monetary_currency):
+        if not (has_financial_benefit or has_monetary_currency or has_waiver_or_support):
             return False, f"Contract Failure (Pillar 3): Document provides no identifiable educational funding, stipend, or fee reimbursement mechanism.", {
                 "type": "LACKS_EDUCATIONAL_FUNDING"
             }
